@@ -18,5 +18,31 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: grey;
+}
+/* Customize the modal header */
+.modal-header {
+  background-color: #007bff; /* Change the background color to blue */
+  color: #fff; /* Change the text color to white */
+}
+
+/* Customize the modal body */
+.modal-body {
+  font-size: 16px; /* Change the font size of the modal body text */
+}
+
+/* Customize the form input */
+.form-control {
+  border: 2px solid #007bff; /* Add a blue border to form controls */
+}
+
+/* Customize the buttons in the modal footer */
+.modal-footer button {
+  background-color: #28a745; /* Change the background color of buttons to green */
+  color: #fff; /* Change the text color to white */
+}
+
+/* Customize the cancel button */
+.modal-footer button.secondary {
+  background-color: #dc3545; /* Change the background color of the cancel button to red */
 }

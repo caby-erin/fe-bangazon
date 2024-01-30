@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ItemCard from '../../components/ItemCard';
+import MenuCard from '../../components/MenuCard';
 import getItems from '../../utils/data/ItemData';
 
 function Home() {
@@ -24,7 +24,7 @@ function Home() {
       >
         {items.map((item) => (
           <div key={`item--${item.id}`} className="item">
-            <ItemCard
+            <MenuCard
               obj={item}
               onUpdate={getItems()}
             />
