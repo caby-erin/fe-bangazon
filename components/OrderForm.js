@@ -27,6 +27,7 @@ function OrderForm({ obj }) {
         customerPhone: obj.customer_phone,
         customerEmail: obj.customer_email,
         orderType: obj.order_type,
+        isClosed: obj.is_closed,
         user: user.id,
       });
     }
@@ -50,6 +51,7 @@ function OrderForm({ obj }) {
         customerPhone: currentOrder.customerPhone,
         customerEmail: currentOrder.customerEmail,
         orderType: currentOrder.orderType,
+        isClosed: currentOrder.isClosed,
         user: user.id,
       };
       console.warn({ payload });
@@ -82,7 +84,24 @@ function OrderForm({ obj }) {
 
         <Form.Group className="mb-3">
           <Form.Label>Order Type</Form.Label>
-          <Form.Control name="orderType" required value={currentOrder.orderType} onChange={handleChange} />
+          <div>
+            <Form.Check
+              type="radio"
+              label="In Person"
+              name="orderType"
+              id="inPerson"
+              checked={currentOrder.orderType === 'In Person'}
+              onChange={() => setCurrentOrder((prev) => ({ ...prev, orderType: 'In Person' }))}
+            />
+            <Form.Check
+              type="radio"
+              label="Over the Phone"
+              name="orderType"
+              id="overThePhone"
+              checked={currentOrder.orderType === 'Over the Phone'}
+              onChange={() => setCurrentOrder((prev) => ({ ...prev, orderType: 'Over the Phone' }))}
+            />
+          </div>
         </Form.Group>
 
         <Button variant="primary" type="submit">
@@ -100,6 +119,7 @@ OrderForm.propTypes = {
     customer_phone: PropTypes.string,
     customer_email: PropTypes.string,
     order_type: PropTypes.string,
+    is_closed: PropTypes.bool,
   }),
 };
 

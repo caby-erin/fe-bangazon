@@ -12,12 +12,15 @@ export default function OrderCard({ obj }) {
       <Card.Header>Order Name: {obj.name}</Card.Header>
       <Card.Body>
         <Card.Text className="text-muted">Order Type: {obj.order_type}</Card.Text>
+        <Card.Text className="text-muted">Order Status: {obj.is_closed ? 'Closed' : 'Open'}</Card.Text>
 
+        {!obj.is_closed && (
         <Link href={`/orders/${obj.id}`} passHref>
           <Button variant="primary" className="m-2">
             View Order
           </Button>
         </Link>
+        )}
       </Card.Body>
     </Card>
   );
@@ -30,6 +33,7 @@ OrderCard.propTypes = {
     customer_phone: PropTypes.string.isRequired,
     customer_email: PropTypes.string.isRequired,
     order_type: PropTypes.string.isRequired,
+    is_closed: PropTypes.bool.isRequired,
   }).isRequired,
 };
 
